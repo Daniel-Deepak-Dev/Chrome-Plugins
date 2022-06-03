@@ -1,0 +1,40 @@
+{
+	"manifest_version": 2,
+	"name": " Dell New Case Comment Alert",
+	"version": "1.0",
+	"description": "This extension is used to alert new Comment",
+	"content_scripts": [
+	  {
+		"matches": ["https://org62.my.salesforce.com/*"],
+		"js": ["jsforce.js","background.js"]
+	  }
+	],
+	"background": {
+		"scripts": [
+			"jsforce.js",
+			"background.js"
+			
+		],
+		"persistent": false
+	},
+	"browser_action": {
+		"default_icon": "icon1.png",
+		"default_popup" : "popup.html"
+	},
+	"permissions":[
+		"tabs",
+		"activeTab",
+		"https://prom-gadget.eng.sfdc.net/diagnostics/*",
+		"https://prom-gadgetui2-1-xrd.eng.sfdc.net:8443/diagnostics/*",
+		"https://org62.lightning.force.com/",
+		"https://org62.my.salesforce.com/services/data/v37.0",
+		"alarms",
+		"clipboardWrite",
+        "cookies",
+        "https://org62.my.salesforce.com/*",
+        "https://login.Salesforce.com/*",
+		"https://media.geeksforgeeks.org/*",
+		"storage"
+	]
+  
+}
