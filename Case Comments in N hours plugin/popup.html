@@ -1,0 +1,92 @@
+<!doctype html>
+<!-- Kone Oyj - 00D20000000152V - Org Request Rate Percentage 28953258 -Customer comment from HTIR Integration User 2(0050M00000DvezzQAB) due to which
+customer comment not avilable in plugin -->
+
+<html style="min-width:650px;">
+<style>
+.header {
+   
+  background-color: #00bfff;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+.loader {
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+.noCasesFound  {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+</style>
+<head >
+    <script src="popup.js"></script>
+    <script src="jsforce.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="slds/assets/styles/salesforce-lightning-design-system.css">
+	
+	<fieldset class="slds-box" id="formHeader">
+		<div class="header">
+			<h1>Cases with Gadget/Customer Comments in OrgCS</h1>
+		</div>
+	</fieldset>
+	
+</head>
+
+<body>
+
+	<fieldset class="slds-box" id="displayCaseCommentTypes">
+		<label for="displayCaseCommentTypes">Choose Case Comment Type:</label>
+		<select name="Comments" id="caseCommentType" onchange="ChangeDropdowns(this.value);">
+			<option value="005Hx000001Q2FJIA0 All">Gadget Comments </option>
+			<option value="005Hx000001Q2FJIA0">Gadget comments with WARN/CRIT/EXHAUST </option>
+			<option value="005300000075tiNAAQ">Customer Comment</option>
+		</select>
+	</fieldset>
+
+	<fieldset class="slds-box" id="displayTime">
+		<label for="displayTime">Choose Time:</label>
+		<select name="Time" id="selectTime">
+			<option value="1">Last 1 Hour</option>
+			<option value="2">Last 2 Hours</option>
+			<option value="3">Last 3 Hours</option>
+			<option value="4">Last 4 Hours</option>
+			<option value="6">Last 6 Hours</option>
+			<option value="8">Last 8 Hours</option>
+			<option value="10">Last 10 Hours</option>
+			<option value="12">Last 12 Hours</option>
+			
+			
+		</select>
+	</fieldset>
+	
+	<button id="getCases">Get Cases</button>
+	<div id="loader" class="loader">loading..</div>
+	<fieldset class="slds-box" id="caseListTable">	
+		<div id="dvTable"></div>
+	</fieldset>
+	
+	<fieldset class="slds-box" id="noCases">
+		<div class="noCasesFound" Id="noCasesFound"/>
+	</fieldset>
+	
+	<fieldset class="slds-box" id="errorArea" style="display: none;">
+		<div class="slds-size_2-of-2">
+			<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+				<span class="slds-assistive-text">error</span>
+				<h2 id="errorHeader"></h2>            
+			</div>
+		</div>
+	</fieldset>
+	
+</body>	
+</html>

@@ -1,0 +1,33 @@
+{
+	"manifest_version": 2,
+	"name": "OrgCS Case Comments",
+	"version": "1.0",
+	"description": "This extension is used to display the cases for which customer comment/Gadget alert received in the last n hours",
+	"content_scripts": [
+	  {
+		"matches": ["https://orgcs.my.salesforce.com/*"],
+		"js": ["jsforce.js"]
+	  }
+	],
+	"icons":{
+		"128":"icon.png"
+	},
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup" : "popup.html"
+	},
+	"permissions":[
+		"tabs",
+		"activeTab",
+		"https://orgcs.lightning.force.com/",
+		"https://orgcs.my.salesforce.com/services/data/v37.0",
+		"https://orgcs.my.salesforce.com/services/data/v42.0",
+		"alarms",
+		"clipboardWrite",
+        "cookies",
+        "https://orgcs.my.salesforce.com/*",
+        "https://login.Salesforce.com/*",
+		"storage"
+	]
+  
+}
