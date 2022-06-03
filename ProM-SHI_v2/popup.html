@@ -1,0 +1,114 @@
+<!doctype html>
+<html style="min-width:500px;">
+<!-- https://prom-gadgetui2-1-xrd.eng.sfdc.net:8443/diagnostics/72c84fd7-266a-4fc9-a518-c286b8f83a04- NO SHI, BI
+https://prom-gadget.eng.sfdc.net/diagnostics/4229acc3-5742-4db6-a117-4518b98ff8ae --Both SHI,BI
+https://prom-gadgetui2-1-xrd.eng.sfdc.net:8443/diagnostics/18534b70-d2c0-4884-b882-d3c3b1b2dac4---have SHI ,No BI-->
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #00bfff;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+.noSHIFound, .noBlacklistItemsFound {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+.header {
+   
+  background-color: #00bfff;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+.loader {
+  position: relative;
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border-top: 5px solid blue;
+  border-right: 5px solid green;
+  border-bottom: 5px solid red;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<head >
+    <script src="popup.js"></script>
+    <script src="jsforce.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="slds/assets/styles/salesforce-lightning-design-system.css">
+	
+
+	<div class="loader" id="loaderIcon"></div>
+
+	<fieldset class="slds-box" id="formHeader">
+		<div class="header">
+		<h1>Special Handing Instructions</h1>
+		</div>
+	</fieldset>
+	
+</head>
+
+<body>
+
+	<fieldset class="slds-box" id="shiArea">
+		<div class="slds-form-element" id="shi"/>
+	</fieldset>
+
+	<fieldset class="slds-box" id="noSHI">
+		<div class="noSHIFound" Id="noSHIFound"/>
+	</fieldset>
+
+	<fieldset class="slds-box" id="BlacklistHeader">
+		<div class="header">
+			<h1>Blacklist Elements</h1>
+		</div>
+	</fieldset>
+	<div  id="loader">loading.....</div>
+	<fieldset class="slds-box" id="blacklistItems">
+			<div id="blacklistElement"></div>
+	</fieldset>
+
+	<fieldset class="slds-box" id="noBlacklistItems">
+		<div class="noBlacklistItemsFound" Id="noBlacklistItemsFound"/>
+	</fieldset>	
+			
+	<fieldset class="slds-box" id="errorArea" style="display: none;">
+		<div class="slds-size_2-of-2">
+			<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+				<span class="slds-assistive-text">error</span>
+				<h2 id="errorHeader"></h2>            
+			</div>
+		</div>
+	</fieldset>
+</body>
+
+
+	<fieldset class="slds-box" id="formFooter">
+		<div class="footer" >
+		  <a href="https://docs.google.com/spreadsheets/d/1thwl7-LdWS2sBrnsuzqzWIaRvTCLEkHrX7knndPWSYY/edit?usp=sharing" id="googleSheetLink"><h1>SHI Google Sheet</h1></a>
+		</div>
+	</fieldset>
+</html>
