@@ -1,0 +1,30 @@
+{
+	"manifest_version": 2,
+	"name": "ProM Task Creation Tool",
+	"version": "1.0",
+	"description": "This extension is used to create Task in Org62 for ProM cases",
+	"content_scripts": [
+	  {
+		"matches": ["https://org62.my.salesforce.com/*"],
+		"js": ["jsforce.js"]
+	  }
+	],
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup" : "popup.html"
+	},
+	"permissions":[
+		"tabs",
+		"activeTab",
+		"https://org62.lightning.force.com/",
+		"https://org62.my.salesforce.com/services/data/v37.0",
+		"https://org62.my.salesforce.com/services/data/v42.0",
+		"alarms",
+		"clipboardWrite",
+        "cookies",
+        "https://org62.my.salesforce.com/*",
+        "https://login.Salesforce.com/*",
+		"storage"
+	]
+  
+}
