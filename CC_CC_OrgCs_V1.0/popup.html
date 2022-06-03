@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Case Closure and Customer comments</title>
+        <script src="popup.js"></script>
+        <script src="jsforce.js"></script>
+		<script src="jquery.min.js"></script>
+		<script src="search.js"></script>
+		
+		<style>
+			div.ex1 {
+			  background-color: lightgrey;
+			  width: 200px;
+			  border: 2px solid green;
+			  padding: 20px;
+			  margin: 10px;
+			}
+			p.ex1 {
+			display: none;
+			}
+			input {
+			display: none;
+			}
+			
+			table {
+			  font-family: arial, sans-serif;
+			  border-collapse: collapse;
+			  width: 100%;
+			  display: none;
+			  table-layout: fixed;
+			}
+			thead {
+			position: sticky;
+			}
+			th {
+			  border: 2px solid #000000;
+			  text-align: left;
+			  padding: 8px;
+			  
+			}
+			td{
+			  border: 2px solid #000000;
+			  text-align: left;
+			  padding: 8px;
+			  
+			}
+			tr:nth-child(even) {
+			  background-color: #f2f2f2;
+			}
+			
+			tr:hover {background-color: #ddd;}
+			.center {
+			  text-align: center;
+			}
+			
+		</style>
+    </head>
+    <body>
+	
+	<h3> <b> Case Closure List </b> </h3>
+        <div class="ex1">
+            <label>Select View:</label>
+        <select id="getView">
+            <option value="MangerView">Manager View</option>
+			<option value="TEview">TE view</option>
+			<option value="CustomerComment">Customer Comment</option>
+        </select>
+        <div id="hidden_div" style="padding-top:10px;">
+			<label>Select Hours:</label></br>
+		<select id="selectTime">
+			<option value="1">Last 1 Hour</option>
+			<option value="2">Last 2 Hours</option>
+			<option value="4">Last 4 Hours</option>
+			<option value="8">Last 8 Hours</option>
+			<option value="12">Last 12 Hours</option>
+			<option value="24">Last 24 Hours</option>
+		</select>
+		</div>		
+        <span></span>
+		
+		</br>
+		</br>
+		</br>
+        <button id="getCases">Get Cases</button>
+		 </div >
+        <p class="ex1" id="message" >Loading...</p>
+		<div class="center"> <input id="myInput"  type="text" placeholder="Search.."> </div> <br/>
+		<table id="dvTable"><thead id="thId" ></thead>  <tbody  id="tbId"> </tbody></table>
+        </div> 
+    </body>
+</html>

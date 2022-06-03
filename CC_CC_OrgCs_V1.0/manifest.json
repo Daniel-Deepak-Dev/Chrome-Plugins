@@ -1,0 +1,37 @@
+{
+     "manifest_version":2,
+    "name":"Case Closures and Customer Comments cs",
+    "version":"3.0",
+    "description":"An extension to get cusotmer comments from last 24 hours",
+    "content_scripts": [{
+        "matches": [
+          "https://orgcs.my.salesforce.com/*"
+        ],
+        "js": ["jsforce.js", "jquery.min.js"]
+  }],
+    "icons":{
+        "48":"icon48.png"
+    },
+	"browser_action":{
+        "default_icon":"icon48.png"
+         
+    },
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+    "permissions": [
+		"tabs",
+        "activeTab",
+        "https://orgcs.lightning.force.com/",
+        "https://orgcs.my.salesforce.com/services/data/v37.0",
+        "https://orgcs.my.salesforce.com/services/data/v42.0",
+        "alarms",
+        "clipboardWrite",
+        "cookies",
+        "https://orgcs.my.salesforce.com/*",
+        "https://login.Salesforce.com/*",
+        "storage"
+      ]
+      
+}
