@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "Case Reassignment Tool cs",
+	"version": "1.0",
+	"description": "This extension is used to reassign the cases",
+	"content_scripts": [
+	  {
+		"matches": ["https://orgcs.my.salesforce.com/*","http://*/*", "https://*/*"],
+		"js": ["jsforce.js","jquery.min.js","bootstrap.min.js","duallistBox.js"]
+	  }
+	],
+	"browser_action": {
+		"default_icon": "icon.png"
+	},
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"permissions":[
+		"tabs",
+		"activeTab",
+		"https://prom-gadget.eng.sfdc.net/diagnostics/*",
+		"https://prom-gadgetui2-1-xrd.eng.sfdc.net:8443/diagnostics/*",
+		"https://orgcs.lightning.force.com/",
+		"https://orgcs.my.salesforce.com/services/data/v42.0",
+		"https://orgcs.my.salesforce.com/services/data/*",
+		"alarms",
+		"clipboardWrite",
+        "cookies",
+        "https://orgcs.my.salesforce.com/*",
+        "https://login.Salesforce.com/*",
+		"https://media.geeksforgeeks.org/*",
+		"storage"
+	]
+  
+}
