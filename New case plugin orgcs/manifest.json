@@ -1,0 +1,43 @@
+{
+	"manifest_version": 2,
+	"name": "Prom New Case Alert in OrgCS",
+	"version": "1.0",
+	"description": "This extension is used to alert on every new prom case",
+	"content_scripts": [
+	  {
+		"matches": ["https://orgcs.my.salesforce.com/*"],
+		"js": ["jsforce.js","background.js"]
+	  }
+	],
+	"background": {
+		"scripts": [
+			"jsforce.js",
+			"background.js"
+			
+		],
+		"persistent": false
+	},
+	"icons":{
+		"128":"icon1.png"
+	},
+	"browser_action": {
+		"default_icon": "icon1.png",
+		"default_popup" : "popup.html"
+	},
+	"permissions":[
+		"tabs",
+		"activeTab",
+		"https://prom-gadget.eng.sfdc.net/diagnostics/*",
+		"https://prom-gadgetui2-1-xrd.eng.sfdc.net:8443/diagnostics/*",
+		"https://orgcs.lightning.force.com/",
+		"https://orgcs.my.salesforce.com/services/data/v37.0",
+		"alarms",
+		"clipboardWrite",
+        "cookies",
+        "https://orgcs.my.salesforce.com/*",
+        "https://login.Salesforce.com/*",
+		"https://media.geeksforgeeks.org/*",
+		"storage"
+	]
+  
+}
