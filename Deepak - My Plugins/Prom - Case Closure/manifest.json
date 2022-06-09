@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Deepak - My Extension",
+    "version": "1.0.0",
+    "description": "Plugin for case closure text generation",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://orgcs.my.salesforce.com/*"
+            ],
+            "js": [
+                "libraries/jsforce.min.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popups/ccgPopup.html" // case closure comment generator Pop-up
+    },
+    "permissions": [
+        "tabs",
+        // "activeTab",
+        // "alarms",
+        "clipboardWrite",
+        "cookies"
+        // "https://login.Salesforce.com/*",
+        // "storage"
+    ],
+    "host_permissions": [
+        "https://orgcs.my.salesforce.com/"
+        // "https://orgcs.lightning.force.com/"
+    ]
+}
