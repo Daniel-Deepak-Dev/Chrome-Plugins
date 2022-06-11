@@ -1,7 +1,10 @@
-const ORGCS_URL = 'https://orgcs.my.salesforce.com';
+// const ORGCS_URL = 'https://orgcs.my.salesforce.com';
+const ORGCS_URL = 'https://dancruz-dev-ed.my.salesforce.com';
 
 let orgcsSessionId;
 let currentPageCaseId;
+
+
 
 //get orgcs SessionId
 function setSessionID() {
