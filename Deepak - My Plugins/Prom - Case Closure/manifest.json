@@ -6,7 +6,7 @@
     "content_scripts": [
         {
             "matches": [
-                "https://orgcs.my.salesforce.com/*"
+                "https://dancruz-dev-ed.my.salesforce.com/*"
             ],
             "js": [
                 "libraries/jsforce.min.js"
@@ -14,19 +14,13 @@
         }
     ],
     "action": {
-        "default_popup": "popups/ccgPopup.html" // case closure comment generator Pop-up
+        "default_popup": "popups/ccgPopup.html"
     },
     "permissions": [
-        "tabs",
-        // "activeTab",
-        // "alarms",
-        "clipboardWrite",
         "cookies"
-        // "https://login.Salesforce.com/*",
-        // "storage"
     ],
     "host_permissions": [
-        "https://orgcs.my.salesforce.com/"
-        // "https://orgcs.lightning.force.com/"
+        "https://dancruz-dev-ed.my.salesforce.com/*",
+        "https://login.Salesforce.com/*"
     ]
 }

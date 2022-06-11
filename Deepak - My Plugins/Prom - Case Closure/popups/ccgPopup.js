@@ -1,4 +1,5 @@
-const ORGCS_URL = 'https://orgcs.my.salesforce.com';
+// const ORGCS_URL = 'https://orgcs.my.salesforce.com';
+const ORGCS_URL = 'https://dancruz-dev-ed.my.salesforce.com';
 
 let orgcsSessionId;
 let currentPageCaseId;
@@ -9,10 +10,10 @@ let currentPageCaseId;
 function setSessionID() {
     return new Promise(resolve => {
         let cookieDetails = { url: ORGCS_URL, name: 'sid' };
-        chrome.cookies.get(cookieDetails, async (cookie) => {
+        chrome.cookies.get(cookieDetails, (cookie) => {
+            debugger;
             console.log(cookie.value);
             orgcsSessionId = cookie.value
-            debugger;
             resolve();
         });
     });
@@ -41,19 +42,23 @@ function getLastOkayComments(currentPageCaseId) {
             sessionId: orgcsSessionId,
         });
 
-        connection.identity((error, response) => {
-            debugger;
+        connection.identity((err, res) => {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log(res);
+                debugger;
+            }
         });
     });
 }
 
-(async () => {
+document.addEventListener('DOMContentLoaded', async () => {
     await setSessionID();
     await setCurrentPageCaseId();
     await getLastOkayComments(currentPageCaseId);
-})();
-
-
+}
+);
 
 //get first comment
 
